@@ -79,8 +79,7 @@ def gen_pwd(pwd_len=8):
         if mynewval == 0 or mynewval == pwd_len - 1 \
                 or specialchar_count == maxspecialchars or mybool == 1:
             # 5 times to help with randomness
-            mytemp = randomoutput.choice(normalchars + normalchars + normalchars
-                                   + normalchars + normalchars)
+            mytemp = randomoutput.choice(normalchars * 5)
             myrandom.append(mytemp)
             mybool = 0
 
@@ -94,14 +93,12 @@ def gen_pwd(pwd_len=8):
 
             # simply trying to increase randomness of the special characters
             # in the final password, 3 times for special chars
-            mytemp = randomoutput.choice(specialchars + specialchars + specialchars)
+            mytemp = randomoutput.choice(specialchars * 7)
             myrandom.append(mytemp)
 
         else:
             # 4 times for both again, changing it up to help with randomness
-            mytemp = randomoutput.choice(normalchars + specialchars + normalchars
-                                   + specialchars + normalchars + specialchars
-                                   + normalchars + specialchars)
+            mytemp = randomoutput.choice((normalchars + specialchars) * 10)
             myrandom.append(mytemp)
             mybool = 0
 
@@ -145,42 +142,19 @@ def gen_pwd(pwd_len=8):
     return mypwd
 
 
-for myval2 in range(8, 32):
+def main():
+    
+    #Variable to control how long of a password you want
+    PasswordLength = 24
 
-    _ = gen_pwd(myval2)
-    print(_)
+    for i in range(10):
+        temp = gen_pwd(PasswordLength)
+        print(temp)
+        temp=""
 
-    # debugging and testing
-    # gen_pwd(1)
-    # gen_pwd(2)
-    # gen_pwd(3)
-    # gen_pwd(4)
-    # gen_pwd(5)
-    # gen_pwd(6)
-    # gen_pwd(7)
-    # gen_pwd(8)
-    # gen_pwd(9)
-    # gen_pwd(10)
-    # gen_pwd(11)
-    # gen_pwd(12)
-    # gen_pwd(13)
-    # gen_pwd(14)
-    # gen_pwd(15)
-    # gen_pwd(16)
-    # gen_pwd(17)
-    # gen_pwd(18)
-    # gen_pwd(19)
-    # gen_pwd(50)
-    # gen_pwd(21)
-    # gen_pwd(22)
-    # gen_pwd(23)
-    # gen_pwd(24)
-    # gen_pwd(25)
-    # gen_pwd(26)
-    # gen_pwd(27)
-    # gen_pwd(28)
-    # gen_pwd(29)
-    # gen_pwd(64)
-    # gen_pwd(128)
-    # gen_pwd(256)
-    # gen_pwd(512)
+
+if __name__ == '__main__':
+    main()
+  
+
+
