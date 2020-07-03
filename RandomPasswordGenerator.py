@@ -143,18 +143,15 @@ def gen_pwd(pwd_len=8):
 
 
 def main():
-    
-    #Variable to control how long of a password you want
+
+    # Variable to control how long of a password you want
     PasswordLength = 24
 
     for i in range(10):
         temp = gen_pwd(PasswordLength)
         print(temp)
-        temp=""
+        temp = ""
 
 
 if __name__ == '__main__':
     main()
-  
-
-
